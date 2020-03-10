@@ -1,4 +1,5 @@
 # Automatic Subtitle Generator for Final Cut Pro X
+Created by Dylan Klein
 
 ## Introduction
 This prototype was built in order to automatically generate subtitles for videos (intended for editing in Final Cut Pro X). The aim is to save a significant amount of time during the editing process. The subtitles generated need to be engaging, and for this reason, YouTube closed captions are not suitable.

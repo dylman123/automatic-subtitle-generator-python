@@ -85,7 +85,7 @@ def modify_xml(xml_path, template_path, captions, coords):
     title_template = ET.parse(template_path)
 
     # Open imported .fcpxml file
-    file_in = ET.parse(xml_path)
+    file_in = ET.parse(xml_path)  # FIXME: Sometimes throws a parse error
     root = file_in.getroot()
 
     # Find offset and start timestamps (in seconds)

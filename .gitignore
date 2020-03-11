@@ -1,0 +1,5 @@
+# Folders not to be uploaded to git
+__pycache__/
+temp/
+output/
+assets/

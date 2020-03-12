@@ -76,7 +76,7 @@ def display_captions(df):
 
     # Window geometry
     max_width = render.root.winfo_screenwidth()
-    width = 900  #  Window width is fixed
+    width = 750  #  Window width is fixed
     max_height = render.root.winfo_screenheight()
     scale = 0.7  # Window is scaled to 70% of fullscreen
     height = int(max_height * scale)
@@ -108,6 +108,6 @@ def display_captions(df):
         anchor=NE)
 
     # Draw scrollable area
-    pd.set_option('display.width', 1000)
-    pd.set_option('display.max_colwidth', 1000)
+    pd.set_option('display.width', 750)
+    #pd.set_option('display.max_colwidth', 1000)
     render.draw_scrollable(text=df, x=0, y=1, width=w, height=h-label_height, anchor=SW)

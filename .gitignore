@@ -1,0 +1,23 @@
+# ====================
+# Folders not to be uploaded to git
+# ====================
+__pycache__/
+temp/
+output/
+assets/
+
+# virtualenv
+bin/
+lib/
+include/
+
+# ====================
+# Types of files
+# ====================
+# Python
+*.__pycache__
+*.pyc
+*.Python
+
+# Video Files
+.mp4

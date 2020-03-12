@@ -1,0 +1,6 @@
+ffmpeg
+noisereduce
+pillow
+pandas
+google-cloud-speech
+google

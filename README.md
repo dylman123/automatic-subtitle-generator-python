@@ -19,6 +19,7 @@ This code was written in Python 3.7.4. Dependencies are:
 * `google-cloud-speech`
 * `tkmessagebox`
 * `pillow`
+* `pandas`
 
 To execute the program, simply run `__main__.py`
 For example: `$ python __main__.py`

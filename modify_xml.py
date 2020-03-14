@@ -110,12 +110,14 @@ def save_xml(video_name, output_dir):
     '''Writes the new .fcpxml file to disk.'''
     global ROOT
 
+    """
     xml_header = [  # Add XML header
         b'<?xml version="1.0" encoding="UTF-8"?>\n',
         b'<!DOCTYPE fcpxml>\n',
         b'\n'
         ]
-
+    """
+    
     data = ET.tostring(ROOT)  # Convert XML data to string
     xml_bytes = new_prettify(data).encode('utf-8')  # Prettify and covert to bytes
 
@@ -123,5 +125,5 @@ def save_xml(video_name, output_dir):
     if os.path.exists(out_path): os.remove(out_path)  # Overwrite if exists
     
     with open(out_path, "wb") as file_out:
-        file_out.writelines(xml_header)  # Write XML header to the file
+        #file_out.writelines(xml_header)  # Write XML header to the file
         file_out.write(xml_bytes)  # Write XML section to the file

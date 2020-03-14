@@ -20,4 +20,7 @@ include/
 *.Python
 
 # Video Files
-.mp4
+*.mp4
+
+# System Files
+*.DS_Store

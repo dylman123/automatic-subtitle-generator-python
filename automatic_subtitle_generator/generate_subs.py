@@ -75,7 +75,7 @@ def display_captions(df):
     '''
 
     # Window geometry
-    max_width = render.root.winfo_screenwidth()
+    # max_width = render.root.winfo_screenwidth()
     width = 900  #  Window width is fixed
     max_height = render.root.winfo_screenheight()
     scale = 0.7  # Window is scaled to 70% of fullscreen

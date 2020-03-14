@@ -5,6 +5,8 @@ __pycache__/
 temp/
 output/
 assets/
+temp/
+dist/
 
 # virtualenv
 bin/
@@ -18,6 +20,8 @@ include/
 *.__pycache__
 *.pyc
 *.Python
+*.spec
+*.DS_Store
 
 # Video Files
 .mp4

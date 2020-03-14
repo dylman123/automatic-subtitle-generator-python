@@ -6,12 +6,12 @@ import pathlib
 from tkinter import Button, CENTER, NW
 
 # Import modules in this project
-import user_inputs as ui
-import signal_processing as sp
-import speech_to_text as s2t
-import generate_subs as gs
-import select_speaker as ss
-import modify_xml as mx
+import automatic_subtitle_generator.user_inputs as ui
+import automatic_subtitle_generator.signal_processing as sp
+import automatic_subtitle_generator.speech_to_text as s2t
+import automatic_subtitle_generator.generate_subs as gs
+import automatic_subtitle_generator.select_speaker as ss
+import automatic_subtitle_generator.modify_xml as mx
 
 # Initialise global variables
 CTRL = -1  # Program control counter

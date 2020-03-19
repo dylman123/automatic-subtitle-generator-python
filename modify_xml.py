@@ -3,6 +3,7 @@ from xml.dom.minidom import parseString
 import re
 import os
 import copy
+import fileinput
 
 def create_title(idx, captions, asset_idx, asset_offset, asset_start, coords):
     '''
@@ -106,18 +107,20 @@ def new_prettify(xml_tree):
     reparsed = parseString(xml_tree)
     return('\n'.join([line for line in reparsed.toprettyxml(indent=' '*4).split('\n') if line.strip()]))
 
+def add_header(out_path):
+    '''Adds an appropriate XML header in order to pass DTD validation.'''
+    header = '<?xml version="1.0" encoding="UTF-8"?>\n<!DOCTYPE fcpxml>\n'
+
+    for n, line in enumerate(fileinput.input(out_path, inplace=True), start=1):
+        if n == 1:
+            print(header, end='\n')
+        else:
+            print(line, end='')
+
 def save_xml(video_name, output_dir):
     '''Writes the new .fcpxml file to disk.'''
     global ROOT
 
-    """
-    xml_header = [  # Add XML header
-        b'<?xml version="1.0" encoding="UTF-8"?>\n',
-        b'<!DOCTYPE fcpxml>\n',
-        b'\n'
-        ]
-    """
-    
     data = ET.tostring(ROOT)  # Convert XML data to string
     xml_bytes = new_prettify(data).encode('utf-8')  # Prettify and covert to bytes
 
@@ -125,5 +128,6 @@ def save_xml(video_name, output_dir):
     if os.path.exists(out_path): os.remove(out_path)  # Overwrite if exists
     
     with open(out_path, "wb") as file_out:
-        #file_out.writelines(xml_header)  # Write XML header to the file
         file_out.write(xml_bytes)  # Write XML section to the file
+
+    add_header(out_path)  # Write XML header to the file

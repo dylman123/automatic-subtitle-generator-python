@@ -36,9 +36,9 @@ def create_title(idx, captions, asset_idx, asset_offset, asset_start, coords):
     branch.attrib['duration'] = f'{duration}/{rate_2}s'
     #branch.attrib['start'] = f'{start}/{rate_3}s'  # Probably don't need to add to <title></title>
     branch[0].attrib['value'] = f'{x_pos} {y_pos}'
-    branch[3][0].attrib['ref'] = f'ts{idx}'
+    branch[3][0].attrib['ref'] = f'ts{idx+1}'
     branch[3][0].text = f'{caption}'
-    branch[4].attrib['id'] = f'ts{idx}'
+    branch[4].attrib['id'] = f'ts{idx+1}'
 
     return copy.deepcopy(branch)
 

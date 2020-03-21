@@ -6,6 +6,7 @@ temp/
 inputs/
 output/
 creds/
+.vscode/
 
 # virtualenv
 bin/

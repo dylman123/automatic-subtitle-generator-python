@@ -1,6 +1,6 @@
 ffmpeg
 noisereduce
-pillow
+Pillow
 pandas
-google-cloud-speech
-google
+google-cloud-speech  # May need to run: pip install --upgrade google-cloud-speech
+#google

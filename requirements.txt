@@ -1,6 +1,6 @@
-ffmpeg  # ffmpeg needs to be installed on the OS (not a Python install), eg. $ brew install ffmpeg
+ffmpeg
 noisereduce
 Pillow
 pandas
-google-cloud-speech  # May need to run: pip install --upgrade google-cloud-speech
+google-cloud-speech
 #google

@@ -5,7 +5,7 @@ __pycache__/
 temp/
 inputs/
 output/
-assets/
+creds/
 
 # virtualenv
 bin/
@@ -22,6 +22,7 @@ include/
 
 # Video Files
 *.mp4
+*.m4v
 
 # System Files
 *.DS_Store

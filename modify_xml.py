@@ -4,6 +4,7 @@ import re
 import os
 import copy
 import fileinput
+import subprocess
 
 def create_title(idx, captions, asset_idx, asset_offset, asset_start, coords):
     '''
@@ -78,6 +79,18 @@ def find_timings(root):
         
     return clip_offsets, clip_starts
 
+def add_title(root, asset_idx, new_title):
+    '''Adds a title element into the appropriate location, whilst maintaining DTD validation.'''
+    root[1][0][0][0][0][asset_idx].append(new_title)
+    trailing_elements = ['audio-channel-source']  # A list of subelements to exist at the end of the parent element
+    for string in trailing_elements:
+        element = root[1][0][0][0][0][asset_idx].find(string)
+        try:
+            root[1][0][0][0][0][asset_idx].remove(element)
+            root[1][0][0][0][0][asset_idx].append(element)  # Move subelement to end of the element list
+        except: pass
+    return root
+
 def modify_xml(xml_path, template_path, captions, coords):
     '''Reads in the title template XML file and modifies it.'''
     global title_template, ROOT
@@ -97,10 +110,7 @@ def modify_xml(xml_path, template_path, captions, coords):
         asset_idx, asset_offset = find_asset_idx(captions, idx, clip_offsets)
         asset_start = clip_starts[asset_idx]
         new_title = create_title(idx, captions, asset_idx, asset_offset, asset_start, coords)
-        root[1][0][0][0][0][asset_idx].append(new_title)
-
-    # Update ROOT (global variable)
-    ROOT = root
+        ROOT = add_title(root, asset_idx, new_title)
 
 def new_prettify(xml_tree):
     '''Does a pretty print for XML file'''
@@ -117,7 +127,14 @@ def add_header(out_path):
         else:
             print(line, end='')
 
-def save_xml(video_name, output_dir):
+def dtd_validator(out_path, dtd_path):
+    '''Runs a XML DTD validator. If validation fails, result is written to terminal.'''
+    command = f'xmllint --noout --dtdvalid {dtd_path} {out_path}'
+    result = subprocess.call(command, shell=True)
+    if(result == 1):
+        print('DTD Validation Failed!')
+
+def save_xml(video_name, output_dir, dtd_path):
     '''Writes the new .fcpxml file to disk.'''
     global ROOT
 
@@ -131,3 +148,4 @@ def save_xml(video_name, output_dir):
         file_out.write(xml_bytes)  # Write XML section to the file
 
     add_header(out_path)  # Write XML header to the file
+    dtd_validator(out_path, dtd_path)  # Validate the outputted file against the FCPXML schema

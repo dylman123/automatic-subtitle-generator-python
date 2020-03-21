@@ -23,11 +23,12 @@ xml_path = ""  # Path to imported xml file
 audio_path = f'{temp_dir}/audio_raw.wav'  # Path to extracted raw audio file
 mono_path = f'{temp_dir}/audio_mono.wav'  # Path to extracted mono audio file
 wd = str(pathlib.Path().absolute())  # Current working directory
-google_creds = wd + "/assets/google_creds.json"  # Path to GCP creds
+google_creds = wd + "/creds/google_creds.json"  # Path to GCP creds
 df_words = None  # Dataframe to store response of GCP API
 df_subs = None  # Dataframe to store individual subtitles
 image_path = f'{temp_dir}/screenshot.png'  # Path to screenshot image file
 template_path = "assets/title_template.fcpxml"  # Path to XML template for a title
+dtd_path = "assets/fcpxml-v1.8.dtd"  # Path to FCPXML 1.8 DTD schema
 
 def restart():
     '''User to restart program once the end has been reached.'''
@@ -98,7 +99,7 @@ def program_ctrl():
         render.set_size(render.initial_width, render.initial_height)
         render.draw_progress_bar()
         mx.modify_xml(xml_path=xml_path, template_path=template_path, captions=df_subs, coords=ss.coords)
-        mx.save_xml(video_name=video_name, output_dir=output_dir)
+        mx.save_xml(video_name=video_name, output_dir=output_dir, dtd_path=dtd_path)
         program_ctrl()
     elif CTRL == 10:  # Save XML file
         render.draw_button(text=render.static_text["newclip"],x=0.5, y=0.5, command=restart)

@@ -6,3 +6,4 @@ if __name__ == "__main__":
     make_output_dir()
     program_ctrl()
     render.mainloop()
+    make_temp_dir()  # Empty the temp dir

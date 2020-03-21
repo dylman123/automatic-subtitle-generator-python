@@ -1,4 +1,4 @@
-ffmpeg
+ffmpeg  # ffmpeg needs to be installed on the OS (not a Python install), eg. $ brew install ffmpeg
 noisereduce
 Pillow
 pandas

@@ -21,10 +21,7 @@ This code was written in Python 3.7.4. Dependencies are:
 * `pillow`
 * `pandas`
 
-To execute the program, simply run `__main__.py`
-For example: `$ python __main__.py`
-
-## Function
+To execute the program, simplytc/gitconfig
 #### Inputs
 The program has the following inputs:
 * Video file (.mp4 or .m4v formats)
@@ -34,3 +31,5 @@ The program has the following inputs:
 #### Outputs
 The program has the following output:
 * A modified Final Cut Pro XML file (.fcpxml) - to be opened in Final Cut Pro X
+
+(Push test)

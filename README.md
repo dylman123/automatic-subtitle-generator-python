@@ -31,5 +31,3 @@ The program has the following inputs:
 #### Outputs
 The program has the following output:
 * A modified Final Cut Pro XML file (.fcpxml) - to be opened in Final Cut Pro X
-
-(Push test)

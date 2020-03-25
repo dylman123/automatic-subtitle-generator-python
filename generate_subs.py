@@ -2,7 +2,7 @@ import pandas as pd
 import render
 import __init__
 
-def create_captions(df_in, word_limit):
+def create_captions(df_in, word_limit=7):
     '''
     Takes a dataframe of individual words as input and applies logic
     to output a new dataframe. However instead of individual words per row,

@@ -81,7 +81,7 @@ def program_ctrl():
         program_ctrl()
     elif CTRL == 5:  # Generate subtitles
         render.draw_progress_bar()
-        df_subs = gs.create_captions(df_words,  word_limit=7)
+        df_subs = gs.create_captions(df_words,  word_limit=4)
         program_ctrl()
     elif CTRL == 6:  # Continue button
         back_button(4)

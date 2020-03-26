@@ -17,14 +17,16 @@ def create_title():
 
 def on_click(eventorigin):
     '''On a mouse click, a dot is rendered and the speaker selection is incremented.'''
-    global NUM_SPEAKERS, x, y, click, coords
-    # Get the cursor coordinates
+    global NUM_SPEAKERS, x, y, click, coords, scale
+    # Get the cursor coordinates relative to NW
     x = eventorigin.x
     y = eventorigin.y
-    r = 10
-    # FCP requires coords to be relative to centre of frame.
-    coords.append((x-render.WIDTH/2, render.HEIGHT/2-y))
+    # FCP requires coords to be relative to centre of frame
+    x0 = x - render.WIDTH/2
+    y0 = render.HEIGHT/2 - y
+    coords.append((x0/scale, y0/scale))
     # Render a coloured dot and titles
+    r = 10  # Radius of circle
     render.draw_circle(x, y, r, click)
     render.clear_canvas_text()
     if click < NUM_SPEAKERS:
@@ -44,6 +46,7 @@ def position_subs(num_speakers):
 
 def screengrab(video_path, image_path):
     '''Grabs an image from the first frame of the video.'''
+    global scale
     command = f'ffmpeg -i {video_path} -ss 00:00:00.000 -vframes 1 {image_path}'
     subprocess.call(command, shell=True)
 
@@ -51,10 +54,11 @@ def screengrab(video_path, image_path):
     img = Image.open(image_path)
     # Set geometry
     WIDTH, HEIGHT = img.size
-    scale = 1
+    scale = 0.5
     WIDTH = int(WIDTH * scale)
     HEIGHT = int(HEIGHT * scale)
     render.set_size(WIDTH, HEIGHT)
+    img = img.resize((WIDTH,HEIGHT), Image.ANTIALIAS)
     # Creates a Tkinter-compatible photo image
     photo_img = ImageTk.PhotoImage(img)
     # The Canvas widget is a standard Tkinter widget used to display graphical items

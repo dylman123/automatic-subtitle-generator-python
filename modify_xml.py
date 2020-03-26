@@ -13,8 +13,8 @@ def create_title(idx, captions, asset_idx, asset_offset, asset_start, coords):
     '''
     global title_template
 
-    start = captions.iloc[idx, 0]
-    duration = captions.iloc[idx, 2]
+    start = round(captions.iloc[idx, 0], 1)  # Round to 1dp to keep to 30fps edit boundary (100/3000s)
+    duration = round(captions.iloc[idx, 2], 1)  # Round to 1dp to keep to 30fps edit boundary (100/3000s)
     caption = captions.iloc[idx, 3]
     speaker = captions.iloc[idx, 4]
 
@@ -22,13 +22,13 @@ def create_title(idx, captions, asset_idx, asset_offset, asset_start, coords):
     branch = title_template.getroot()
 
     # Modify the template for the specific caption and associated FCP parameters
-    rate_1 = 6000
-    rate_2 = 3000
-    #rate_3 = 3000  # Probably don't need to add to <title></title>
+    rate_1 = 3000  # Set to 3000 to keep to 30fps edit boundary (100/3000s)
+    rate_2 = 3000  # Set to 3000 to keep to 30fps edit boundary (100/3000s)
+    rate_3 = 3000  # Set to 3000 to keep to 30fps edit boundary (100/3000s)
     relstart = start - asset_offset  # Start time of title relative to clip
     offset = int((asset_start + relstart) * rate_1)
     duration = int(duration * rate_2)
-    #start = int(3363 * rate_3)  # Probably don't need to add to <title></title>
+    #start = int(? * rate_3)  # Probably don't need to add to <title></title> for now
     x_pos, y_pos = coords[speaker-1]
 
     # Set parameter values in XML template

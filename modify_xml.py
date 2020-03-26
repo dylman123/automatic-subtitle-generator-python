@@ -6,7 +6,21 @@ import copy
 import fileinput
 import subprocess
 
-def create_title(idx, captions, asset_idx, asset_offset, asset_start, coords):
+def create_resource(root):
+    '''
+    Creates a new resource for a Basic Title.
+    Returns the id of the new resource.
+    '''
+    resources = root.find('resources')
+    new_id = str(len(resources)+1)
+    title = ET.Element('effect')
+    title.attrib = {'id': f'r{new_id}',
+                     'name': 'Basic Title',
+                     'uid': '.../Titles.localized/Bumper:Opener.localized/Basic Title.localized/Basic Title.moti'}
+    resources.append(title)
+    return new_id
+
+def create_title(idx, captions, asset_idx, asset_offset, asset_start, coords, rsc_id):
     '''
     Generates a <title></title> section of the .fcpxml file, based on the
     captions which were generated previously.
@@ -35,6 +49,7 @@ def create_title(idx, captions, asset_idx, asset_offset, asset_start, coords):
     branch.attrib['name'] = f'{caption} - Basic Title'
     branch.attrib['offset'] = f'{offset}/{rate_1}s'
     branch.attrib['duration'] = f'{duration}/{rate_2}s'
+    branch.attrib['ref'] = f'r{rsc_id}'
     #branch.attrib['start'] = f'{start}/{rate_3}s'  # Probably don't need to add to <title></title>
     branch[0].attrib['value'] = f'{x_pos} {y_pos}'
     branch[3][0].attrib['ref'] = f'ts{idx+1}'
@@ -102,6 +117,9 @@ def modify_xml(xml_path, template_path, captions, coords):
     file_in = ET.parse(xml_path)  # FIXME: Sometimes throws a parse error
     root = file_in.getroot()
 
+    # Create a new resource for a Basic Title
+    rsc_id = create_resource(root)
+
     # Find offset and start timestamps (in seconds)
     clip_offsets, clip_starts = find_timings(root)
 
@@ -109,7 +127,7 @@ def modify_xml(xml_path, template_path, captions, coords):
     for idx in range(len(captions)):
         asset_idx, asset_offset = find_asset_idx(captions, idx, clip_offsets)
         asset_start = clip_starts[asset_idx]
-        new_title = create_title(idx, captions, asset_idx, asset_offset, asset_start, coords)
+        new_title = create_title(idx, captions, asset_idx, asset_offset, asset_start, coords, rsc_id)
         ROOT = add_title(root, asset_idx, new_title)
 
 def new_prettify(xml_tree):

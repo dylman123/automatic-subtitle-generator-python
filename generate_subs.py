@@ -87,9 +87,9 @@ def display_captions(df):
     instruction = render.static_text["display_subs"]
     render.draw_info(
         text=instruction,
-        x=0,
+        x=0.1,
         y=0, 
-        font="Default 15 bold",
+        font="Default 10 bold",
         anchor=NW,
         justify=LEFT)
     label_height = 50  # in pixels

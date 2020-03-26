@@ -13,10 +13,11 @@ def create_title():
     '''Draws a title to instruct the user.'''
     global INSTRUCTION, click
     instruction = INSTRUCTION.replace("{speaker}", str(click))
-    render.draw_large_text(text=instruction, x=20, y=10, click=click)
+    render.draw_large_text(text=instruction, x=20, y=40, click=click)
 
 def on_click(eventorigin):
     '''On a mouse click, a dot is rendered and the speaker selection is incremented.'''
+    from tkinter import NE  # needed to parse anchor args
     global NUM_SPEAKERS, x, y, click, coords, scale
     # Get the cursor coordinates relative to NW
     x = eventorigin.x
@@ -33,7 +34,7 @@ def on_click(eventorigin):
         click += 1
         create_title()
     elif click >= NUM_SPEAKERS:
-        render.draw_button(text="Next", x=0.98, y=0.02, command=__init__.program_ctrl)
+        render.draw_button(text="Next", x=0.98, y=0.02, anchor=NE, command=__init__.program_ctrl)
 
 def position_subs(num_speakers):
     '''Creates a clickable/interactive area to position subtitles.'''

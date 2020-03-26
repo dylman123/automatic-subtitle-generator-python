@@ -82,7 +82,7 @@ def draw_circle(x, y, r, click):
 def draw_large_text(text, x, y, click, anchor=NW):
     '''Draws large text onto the canvas.'''
     global canvas, large_text, colours
-    large_text = canvas.create_text(x, y, anchor=anchor, width=WIDTH-100, text=text, font=("Purisa", 40), fill=colours[click-1])
+    large_text = canvas.create_text(x, y, anchor=anchor, width=WIDTH-100, text=text, font=("Purisa", 20, "bold"), fill=colours[click-1])
 
 def draw_small_text(text):
     '''Draws small text onto the canvas.'''

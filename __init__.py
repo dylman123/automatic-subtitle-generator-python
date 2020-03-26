@@ -89,12 +89,14 @@ def program_ctrl():
         render.draw_button(text="Next",x=0.5,y=0.8,command=program_ctrl)
     elif CTRL == 7:  # Display subtitles
         gs.display_captions(df_subs)
-        back_button(5, x=render.WIDTH-85, y=21)
+        #back_button(5, x=render.WIDTH-85, y=21)
+        back_button(5)
     elif CTRL == 8:  # Select speaker
         make_temp_dir()
         ss.screengrab(video_path=video_path, image_path=image_path)
         ss.position_subs(num_speakers=ui.num_speakers)
-        back_button(1, x=render.WIDTH-100, y=22)
+        #back_button(1, x=render.WIDTH-100, y=22)
+        back_button(1)
     elif CTRL == 9:  # Modify and save XML file
         render.set_size(render.initial_width, render.initial_height)
         render.draw_progress_bar()

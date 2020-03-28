@@ -72,21 +72,22 @@ def find_asset_idx(captions, idx, clip_offsets):
             asset_offset = clip_offset
     return asset_idx, asset_offset
 
-def find_timings(root):
+def find_timings(spine):
     '''
     Finds the offsets and starts (timestamps) of each of the "asset-clip"s in the
     .fcpxml file. This is needed in order to match each of the captions into the appropriate
     asset-clip in the .fcpxml file. This function returns 2 lists of floats.
     '''
+
     clip_offsets = []
-    for asset_clip in root[1][0][0][0][0].findall('asset-clip'):
+    for asset_clip in spine.findall('asset-clip'):
         num = int(re.split('/|s', asset_clip.attrib['offset'])[0])
         try: den = int(re.split('/|s', asset_clip.attrib['offset'])[1])  # May be an empty string
         except: den = 1
         clip_offsets.append(num / den)
     
     clip_starts = []
-    for asset_clip in root[1][0][0][0][0].findall('asset-clip'):
+    for asset_clip in spine.findall('asset-clip'):
         num = int(re.split('/|s', asset_clip.attrib['start'])[0])
         try: den = int(re.split('/|s', asset_clip.attrib['start'])[1])  # May be an empty string
         except: den = 1
@@ -94,21 +95,20 @@ def find_timings(root):
         
     return clip_offsets, clip_starts
 
-def add_title(root, asset_idx, new_title):
+def add_title(spine, asset_idx, new_title):
     '''Adds a title element into the appropriate location, whilst maintaining DTD validation.'''
-    root[1][0][0][0][0][asset_idx].append(new_title)
+    spine[asset_idx].append(new_title)
     trailing_elements = ['audio-channel-source']  # A list of subelements to exist at the end of the parent element
     for string in trailing_elements:
-        element = root[1][0][0][0][0][asset_idx].find(string)
+        element = spine[asset_idx].find(string)
         try:
-            root[1][0][0][0][0][asset_idx].remove(element)
-            root[1][0][0][0][0][asset_idx].append(element)  # Move subelement to end of the element list
+            spine[asset_idx].remove(element)
+            spine[asset_idx].append(element)  # Move subelement to end of the element list
         except: pass
-    return root
 
 def modify_xml(xml_path, template_path, captions, coords):
     '''Reads in the title template XML file and modifies it.'''
-    global title_template, ROOT
+    global title_template, root
 
     # Parse in the title template XML file
     title_template = ET.parse(template_path)
@@ -120,15 +120,19 @@ def modify_xml(xml_path, template_path, captions, coords):
     # Create a new resource for a Basic Title
     rsc_id = create_resource(root)
 
+    # Create a spine variable (assumes only 1 spine exists in the video file)
+    for element in root.iter('spine'):
+        spine = element
+
     # Find offset and start timestamps (in seconds)
-    clip_offsets, clip_starts = find_timings(root)
+    clip_offsets, clip_starts = find_timings(spine)
 
     # Iterate through all the captions and place them in the appropriate xml locations
     for idx in range(len(captions)):
         asset_idx, asset_offset = find_asset_idx(captions, idx, clip_offsets)
         asset_start = clip_starts[asset_idx]
         new_title = create_title(idx, captions, asset_idx, asset_offset, asset_start, coords, rsc_id)
-        ROOT = add_title(root, asset_idx, new_title)
+        add_title(spine, asset_idx, new_title)
 
 def new_prettify(xml_tree):
     '''Does a pretty print for XML file'''
@@ -154,9 +158,9 @@ def dtd_validator(out_path, dtd_path):
 
 def save_xml(video_name, output_dir, dtd_path):
     '''Writes the new .fcpxml file to disk.'''
-    global ROOT
+    global root
 
-    data = ET.tostring(ROOT)  # Convert XML data to string
+    data = ET.tostring(root)  # Convert XML data to string
     xml_bytes = new_prettify(data).encode('utf-8')  # Prettify and covert to bytes
 
     out_path = f"{output_dir}/{video_name}.fcpxml"  # Set output path

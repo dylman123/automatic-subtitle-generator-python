@@ -41,6 +41,9 @@ def restart():
 def decrement_ctrl(steps):
     '''CTRL is decremented when user clicks "Back".'''
     global CTRL
+    if CTRL == 1 or CTRL == 2:
+        del ui.file_paths[-1]  # Remove the most recent path
+    print(ui.file_paths)
     CTRL -= (steps+1)
     render.bar_step = 0
     program_ctrl()

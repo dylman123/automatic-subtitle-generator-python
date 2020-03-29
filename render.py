@@ -31,9 +31,16 @@ def draw_scrollbar():
     return barwidth
 
 def draw_button(text, x, y, command, anchor=CENTER, wraplength=0):
-    global root, button
+    global root, buttons
     button = Button(root, text=text, wraplength=wraplength, anchor=CENTER, command=command)
     button.place(relx=x, rely=y, anchor=anchor)
+    buttons.append(button)
+
+def draw_back(steps):
+    draw_button(text="Back", x=0.02, y=0.02, anchor=NW, command=lambda:__init__.decrement_ctrl(steps))
+
+def draw_next():
+    draw_button(text="Next", x=0.98, y=0.02, anchor=NE, command=__init__.program_ctrl)
 
 def draw_info(text, x, y, font="Default", anchor=CENTER, justify=CENTER):
     global root, info
@@ -97,10 +104,14 @@ def clear_canvas_text():
         except: pass
 
 def clear_window():
-    global button, back, info, textbox, error, string_in, progress, scroll, scrollable, canvas
-    for item in button, back, info, textbox, error, progress, scroll, scrollable, canvas:
-        try: 
+    global buttons, back, info, textbox, error, string_in, progress, scroll, scrollable, canvas
+    for item in buttons, back, info, textbox, error, progress, scroll, scrollable, canvas:
+        try:  # If item is a tkinter element
             item.destroy()
+        except: pass
+        try:  # If item is a list
+            for element in item:
+                element.destroy()
         except: pass
         string_in = ""
 
@@ -117,15 +128,20 @@ def start():
     root.title(static_text["title"])
     set_size(WIDTH, HEIGHT)
 
+def reset_size():
+    global initial_width, initial_height
+    set_size(initial_width, initial_height)
+
 # Set initial window geometry
 initial_width = 500
-initial_height = 150
+initial_height = 200
 WIDTH = initial_width
 HEIGHT = initial_height
 
 # Initialisation functions and variables
+'''Variables can be tkinter elements or a list of tkinter elements.'''
 read_static_text()
-button = None
+buttons = []
 back = None
 info = None
 textbox = None

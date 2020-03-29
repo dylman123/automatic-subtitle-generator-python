@@ -25,10 +25,13 @@
             "Step 1: Extracting audio from video...",
             "Step 2: Converting audio speech to text...\n(This may take several minutes)",
             "Step 3: Creating subtitles from text...",
-            "Step 4: Please select subtitle locations",
+            "Step 4: Please review the subtitles",
             "Step 5: Modifying and saving XML file..."
         ],
-    "display_subs": "Your subtitles have been generated.\nPlease review, take note of the speaker labels, and click 'NEXT' to position the subtitles.",
+    "display_subs": {
+        "instructions": "Help:\n\n* Play clip audio\n* Review/edit subtitles & speaker labels\n* 'Save' subtitles file\n* Click 'Next' to position subtitles",
+        "buttons": ["Play clip audio", "Review subtitles"]
+        },
     "select_speaker": {
         "instructions": "Click to select the desired location of speaker {speaker}'s subtitles.",
         "heading": "Speaker {speaker} has the following captions:\n\n"

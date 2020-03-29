@@ -5,6 +5,7 @@ import os
 import copy
 import fileinput
 import subprocess
+import pandas as pd
 
 def create_resource(root):
     '''
@@ -27,10 +28,10 @@ def create_title(idx, captions, asset_idx, asset_offset, asset_start, coords, rs
     '''
     global title_template
 
-    start = round(captions.iloc[idx, 0], 1)  # Round to 1dp to keep to 30fps edit boundary (100/3000s)
-    duration = round(captions.iloc[idx, 2], 1)  # Round to 1dp to keep to 30fps edit boundary (100/3000s)
-    caption = captions.iloc[idx, 3]
-    speaker = captions.iloc[idx, 4]
+    start = round(captions.iloc[idx, 1], 1)  # Round to 1dp to keep to 30fps edit boundary (100/3000s)
+    duration = round(captions.iloc[idx, 3], 1)  # Round to 1dp to keep to 30fps edit boundary (100/3000s)
+    caption = captions.iloc[idx, 4]
+    speaker = captions.iloc[idx, 5]
 
     # Assign the title template to a local root 
     branch = title_template.getroot()
@@ -106,9 +107,12 @@ def add_title(spine, asset_idx, new_title):
             spine[asset_idx].append(element)  # Move subelement to end of the element list
         except: pass
 
-def modify_xml(xml_path, template_path, captions, coords):
+def modify_xml(xml_path, template_path, csv_path, coords):
     '''Reads in the title template XML file and modifies it.'''
     global title_template, root
+
+    # Parse saved csv as a pandas dataframe
+    captions = pd.read_csv(csv_path)
 
     # Parse in the title template XML file
     title_template = ET.parse(template_path)

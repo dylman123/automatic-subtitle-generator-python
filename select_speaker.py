@@ -1,6 +1,7 @@
 import render
 import subprocess
 from PIL import ImageTk, Image
+import os.path
 import __init__
 
 TEXT = render.static_text["select_speaker"]
@@ -13,11 +14,10 @@ def create_title():
     '''Draws a title to instruct the user.'''
     global INSTRUCTION, click
     instruction = INSTRUCTION.replace("{speaker}", str(click))
-    render.draw_large_text(text=instruction, x=20, y=40, click=click)
+    render.draw_large_text(text=instruction, x=20, y=50, click=click)
 
 def on_click(eventorigin):
     '''On a mouse click, a dot is rendered and the speaker selection is incremented.'''
-    from tkinter import NE  # needed to parse anchor args
     global NUM_SPEAKERS, x, y, click, coords, scale
     # Get the cursor coordinates relative to NW
     x = eventorigin.x
@@ -34,7 +34,7 @@ def on_click(eventorigin):
         click += 1
         create_title()
     elif click >= NUM_SPEAKERS:
-        render.draw_button(text="Next", x=0.98, y=0.02, anchor=NE, command=__init__.program_ctrl)
+        render.draw_next()
 
 def position_subs(num_speakers):
     '''Creates a clickable/interactive area to position subtitles.'''
@@ -48,9 +48,9 @@ def position_subs(num_speakers):
 def screengrab(video_path, image_path):
     '''Grabs an image from the first frame of the video.'''
     global scale
-    command = f'ffmpeg -i {video_path} -ss 00:00:00.000 -vframes 1 {image_path}'
-    subprocess.call(command, shell=True)
-
+    if os.path.isfile(image_path) == False:
+        command = f'ffmpeg -i {video_path} -ss 00:00:00.000 -vframes 1 {image_path}'
+        subprocess.call(command, shell=True)
     # Open image from path
     img = Image.open(image_path)
     # Set geometry
@@ -73,15 +73,12 @@ def get_examples_for_speaker(df_captions, speaker_tag, q=7):
     Default value of "q" = 7.
     Used to capture examples of a speaker's captions.
     '''
-    
     captions_list = []
     count = 0
-    
     for idx in range(len(df_captions)):
         if df_captions.iloc[idx, 4] == speaker_tag and count < q:
             captions_list.append(df_captions.iloc[idx, 3])
             count += 1
         if count >= q:
-            break
-            
+            break     
     return captions_list

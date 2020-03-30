@@ -23,11 +23,13 @@ xml_path = ""  # Path to imported xml file
 audio_path = f'{temp_dir}/audio_raw.wav'  # Path to extracted raw audio file
 mono_path = f'{temp_dir}/audio_mono.wav'  # Path to extracted mono audio file
 wd = str(pathlib.Path().absolute())  # Current working directory
-google_creds = wd + "/assets/google_creds.json"  # Path to GCP creds
+google_creds = wd + "/creds/google_creds.json"  # Path to GCP creds
 df_words = None  # Dataframe to store response of GCP API
 df_subs = None  # Dataframe to store individual subtitles
+csv_path = f'{temp_dir}/subtitles.csv'
 image_path = f'{temp_dir}/screenshot.png'  # Path to screenshot image file
 template_path = "assets/title_template.fcpxml"  # Path to XML template for a title
+dtd_path = "assets/fcpxml-v1.8.dtd"  # Path to FCPXML 1.8 DTD schema
 
 def restart():
     '''User to restart program once the end has been reached.'''
@@ -40,19 +42,22 @@ def restart():
 def decrement_ctrl(steps):
     '''CTRL is decremented when user clicks "Back".'''
     global CTRL
-    CTRL -= (steps+1)
-    render.bar_step = 0
+    if CTRL == 1 or CTRL == 2:
+        del ui.file_paths[-1]  # Remove the most recent path
+    if CTRL < 8:
+        render.bar_step = 0  # Reset progress bar
+    CTRL -= (steps+1)  # Need to decrement by an extra step since program_ctrl() increments a step
     program_ctrl()
 
-def back_button(steps, x=30, y=20):
+def back_button(steps):
     '''Draws a back button.'''
-    render.back = Button(render.root, text="Back", anchor=CENTER, command=lambda:decrement_ctrl(steps))
-    render.back.place(x=x, y=y, anchor=CENTER)
+    render.draw_back(steps)
 
 def program_ctrl():
     '''Controls the program flow.'''
     global CTRL, video_path, video_name, xml_path, df_words, df_subs, image_path
     render.clear_window()
+    render.reset_size()
     CTRL += 1
     if CTRL == 0:  # Import video file
         ui.import_file(CTRL)
@@ -80,25 +85,24 @@ def program_ctrl():
         program_ctrl()
     elif CTRL == 5:  # Generate subtitles
         render.draw_progress_bar()
-        df_subs = gs.create_captions(df_words,  word_limit=7)
+        df_subs = gs.create_captions(df_words,  word_limit=4)
+        gs.save_csv(df_subs, csv_path)
         program_ctrl()
     elif CTRL == 6:  # Continue button
         back_button(4)
+        render.draw_next()
         render.draw_progress_bar()
-        render.draw_button(text="Next",x=0.5,y=0.8,command=program_ctrl)
-    elif CTRL == 7:  # Display subtitles
-        gs.display_captions(df_subs)
-        back_button(5, x=render.WIDTH-85, y=21)
+    elif CTRL == 7:  # Review subtitles
+        gs.review_captions(csv_path=csv_path, audio_path=audio_path)
+        back_button(5)
     elif CTRL == 8:  # Select speaker
-        make_temp_dir()
         ss.screengrab(video_path=video_path, image_path=image_path)
         ss.position_subs(num_speakers=ui.num_speakers)
-        back_button(1, x=render.WIDTH-100, y=22)
+        back_button(1)
     elif CTRL == 9:  # Modify and save XML file
-        render.set_size(render.initial_width, render.initial_height)
         render.draw_progress_bar()
-        mx.modify_xml(xml_path=xml_path, template_path=template_path, captions=df_subs, coords=ss.coords)
-        mx.save_xml(video_name=video_name, output_dir=output_dir)
+        mx.modify_xml(xml_path=xml_path, template_path=template_path, csv_path=csv_path, coords=ss.coords)
+        mx.save_xml(video_name=video_name, output_dir=output_dir, dtd_path=dtd_path)
         program_ctrl()
     elif CTRL == 10:  # Save XML file
         render.draw_button(text=render.static_text["newclip"],x=0.5, y=0.5, command=restart)

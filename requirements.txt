@@ -1,6 +1,6 @@
 ffmpeg
 noisereduce
-pillow
+Pillow
 pandas
 google-cloud-speech
-google
+#google

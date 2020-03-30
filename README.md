@@ -14,9 +14,9 @@ This demo has the following requirements:
 
 ## Installation
 This code was written in Python 3.7.4. Dependencies are:
-* `ffmpeg`
+* `ffmpeg` (ffmpeg needs to be installed on the OS - not a Python install, eg. `$ brew install ffmpeg`)
 * `noisereduce`
-* `google-cloud-speech`
+* `google-cloud-speech` (May need to run: `$ pip install --upgrade google-cloud-speech`)
 * `tkmessagebox`
 * `pillow`
 * `pandas`

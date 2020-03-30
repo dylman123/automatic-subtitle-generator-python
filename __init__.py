@@ -37,6 +37,7 @@ def restart():
     CTRL = -1
     render.bar_step = 0
     ui.file_paths = []
+    make_temp_dir()
     program_ctrl()
 
 def decrement_ctrl(steps):

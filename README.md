@@ -21,7 +21,16 @@ This code was written in Python 3.7.4. Dependencies are:
 * `pillow`
 * `pandas`
 
-To execute the program, simplytc/gitconfig
+1. Run the following command:
+`$ pip install -r requirements.txt`
+
+2. Then run the following command to install `ffmpeg`:
+`$ brew install ffmpeg`
+
+3. To execute the program, simply run `__main__.py`
+For example: `$ python __main__.py`
+
+## Function
 #### Inputs
 The program has the following inputs:
 * Video file (.mp4 or .m4v formats)

@@ -67,6 +67,7 @@ def screengrab(video_path, image_path):
     # Insert the image onto the canvas
     render.draw_image(photo_img)
 
+"""
 def get_examples_for_speaker(df_captions, speaker_tag, q=7):
     '''
     Returns a speaker's first "q" captions in the clip as a list. 
@@ -82,3 +83,4 @@ def get_examples_for_speaker(df_captions, speaker_tag, q=7):
         if count >= q:
             break     
     return captions_list
+"""

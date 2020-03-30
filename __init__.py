@@ -7,11 +7,11 @@ from tkinter import Button, CENTER, NW
 
 # Import modules in this project
 import user_inputs as ui
-import signal_processing as sp
-import speech_to_text as s2t
-import generate_subs as gs
-import select_speaker as ss
-import modify_xml as mx
+import scripts.signal_processing as sp
+import scripts.speech_to_text as s2t
+import scripts.generate_subs as gs
+import scripts.select_speaker as ss
+import scripts.modify_xml as mx
 
 # Initialise global variables
 CTRL = -1  # Program control counter

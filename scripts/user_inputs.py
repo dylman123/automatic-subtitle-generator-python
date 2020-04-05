@@ -1,4 +1,4 @@
-import scripts.render as render
+from scripts import render
 
 # Import static text from assets
 TEXT = render.static_text["user_inputs"]

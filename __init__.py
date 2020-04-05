@@ -5,13 +5,13 @@ import pathlib
 from tkinter import Button, CENTER, NW
 
 # Import modules in this project
-import scripts.render as render
-import scripts.user_inputs as ui
-import scripts.signal_processing as sp
-import scripts.speech_to_text as s2t
-import scripts.generate_subs as gs
-import scripts.select_speaker as ss
-import scripts.modify_xml as mx
+from scripts import render
+from scripts import user_inputs as ui
+from scripts import signal_processing as sp
+from scripts import speech_to_text as s2t
+from scripts import generate_subs as gs
+from scripts import select_speaker as ss
+from scripts import modify_xml as mx
 
 # Initialise global variables
 CTRL = -1  # Program control counter

@@ -1,4 +1,4 @@
-import scripts.render as render
+from scripts import render
 import subprocess
 from PIL import ImageTk, Image
 import os.path

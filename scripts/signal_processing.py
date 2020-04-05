@@ -1,4 +1,4 @@
-import scripts.render as render
+from scripts import render
 import subprocess
 
 def convert_to_wav(video_path, audio_path):

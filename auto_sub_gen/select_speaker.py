@@ -1,4 +1,4 @@
-from scripts import render
+from auto_sub_gen import render
 import subprocess
 from PIL import ImageTk, Image
 import os.path

@@ -1,4 +1,4 @@
-from scripts import render
+from auto_sub_gen import render
 import subprocess
 
 def convert_to_wav(video_path, audio_path):

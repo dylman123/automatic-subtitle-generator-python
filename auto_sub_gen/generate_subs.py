@@ -1,5 +1,5 @@
 import pandas as pd
-from scripts import render
+from auto_sub_gen import render
 import os, sys, subprocess
 
 def create_captions(df_in, word_limit=7):

@@ -1,4 +1,4 @@
-from scripts import render
+from auto_sub_gen import render
 
 # Import static text from assets
 TEXT = render.static_text["user_inputs"]

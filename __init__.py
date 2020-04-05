@@ -1,11 +1,11 @@
 # Import Python modules
-import render
 import os
 import glob
 import pathlib
 from tkinter import Button, CENTER, NW
 
 # Import modules in this project
+import scripts.render as render
 import scripts.user_inputs as ui
 import scripts.signal_processing as sp
 import scripts.speech_to_text as s2t
@@ -61,7 +61,6 @@ def program_ctrl():
     render.reset_size()
     CTRL += 1
     if CTRL == 0:  # Import video file
-        ui.get_callback(program_ctrl)
         ui.import_file(CTRL)
     elif CTRL == 1:  # Import XML file
         back_button(1)
@@ -124,3 +123,17 @@ def make_output_dir():
     global output_dir
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
+
+def set_callbacks():
+    '''Sets the callback functions to this module.'''
+    ui.get_callback(fn=program_ctrl)
+    render.get_callback(next_fn=program_ctrl, back_fn=decrement_ctrl)
+
+# Start the program
+if __name__ == "__main__":
+    make_temp_dir()
+    make_output_dir()
+    set_callbacks()
+    program_ctrl()
+    render.mainloop()
+    make_temp_dir()  # Empty the temp dir

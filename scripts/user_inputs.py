@@ -1,4 +1,4 @@
-import render
+import scripts.render as render
 
 # Import static text from assets
 TEXT = render.static_text["user_inputs"]
@@ -10,10 +10,10 @@ verify_errors = TEXT["verify_errors"]
 file_paths = []  # A list of strings which contains the input file paths
 num_speakers = 0  # An integer to represent how many speakers are in the clip
 
-def get_callback(function):
+def get_callback(fn):
     '''To pass the program_ctrl() function into this module.'''
     global callback
-    callback = function
+    callback = fn
 
 def get_video_name(path):
     '''

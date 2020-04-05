@@ -27,8 +27,8 @@ This code was written in Python 3.7.4. Dependencies are:
 2. Then run the following command to install `ffmpeg`:
 `$ brew install ffmpeg`
 
-3. To execute the program, simply run `__main__.py`
-For example: `$ python __main__.py`
+3. To execute the program, simply run `__init__.py`
+For example: `$ python __init__.py`
 
 ## Function
 #### Inputs

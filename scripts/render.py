@@ -3,7 +3,12 @@ from tkinter.ttk import Progressbar
 from tkinter import filedialog
 import json
 import time
-import __init__
+
+def get_callback(next_fn, back_fn):
+    '''To pass the program_ctrl() and decrement_ctrl() functions into this module.'''
+    global next_callback, back_callback
+    next_callback = next_fn
+    back_callback = back_fn
 
 def read_static_text():
     '''Returns dict of the static text file'''
@@ -37,10 +42,10 @@ def draw_button(text, x, y, command, anchor=CENTER, wraplength=0):
     buttons.append(button)
 
 def draw_back(steps):
-    draw_button(text="Back", x=0.02, y=0.02, anchor=NW, command=lambda:__init__.decrement_ctrl(steps))
+    draw_button(text="Back", x=0.02, y=0.02, anchor=NW, command=lambda:back_callback(steps))
 
 def draw_next():
-    draw_button(text="Next", x=0.98, y=0.02, anchor=NE, command=__init__.program_ctrl)
+    draw_button(text="Next", x=0.98, y=0.02, anchor=NE, command=next_callback)
 
 def draw_info(text, x, y, font="Default", anchor=CENTER, justify=CENTER):
     global root, info

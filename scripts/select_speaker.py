@@ -2,7 +2,6 @@ import render
 import subprocess
 from PIL import ImageTk, Image
 import os.path
-import __init__
 
 TEXT = render.static_text["select_speaker"]
 INSTRUCTION = TEXT["instructions"]

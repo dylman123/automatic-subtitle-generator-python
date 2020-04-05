@@ -6,7 +6,7 @@ import pathlib
 from tkinter import Button, CENTER, NW
 
 # Import modules in this project
-import user_inputs as ui
+import scripts.user_inputs as ui
 import scripts.signal_processing as sp
 import scripts.speech_to_text as s2t
 import scripts.generate_subs as gs
@@ -61,6 +61,7 @@ def program_ctrl():
     render.reset_size()
     CTRL += 1
     if CTRL == 0:  # Import video file
+        ui.get_callback(program_ctrl)
         ui.import_file(CTRL)
     elif CTRL == 1:  # Import XML file
         back_button(1)

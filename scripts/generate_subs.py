@@ -1,7 +1,6 @@
 import pandas as pd
 import render
 import os, sys, subprocess
-import __init__
 
 def create_captions(df_in, word_limit=7):
     '''

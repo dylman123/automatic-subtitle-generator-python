@@ -21,14 +21,18 @@ This code was written in Python 3.7.4. Dependencies are:
 * `pillow`
 * `pandas`
 
-1. Run the following command:
+#### Steps
+1. Run the following command to install (most of) the above dependencies:
 `$ pip install -r requirements.txt`
 
 2. Then run the following command to install `ffmpeg`:
 `$ brew install ffmpeg`
 
-3. To execute the program, simply run `__init__.py`
-For example: `$ python __init__.py`
+3. Create a Google Cloud Platform account, activate the Speech-to-Text API, save your API credentials as:
+`.creds/google_creds.json`
+
+4. To execute the program, simply run:
+`$ python __init__.py`
 
 ## Function
 #### Inputs

@@ -48,6 +48,8 @@ def screengrab(video_path, image_path):
     '''Grabs an image from the first frame of the video.'''
     global scale
     if os.path.isfile(image_path) == False:
+        if ('\ ' in video_path) == False:
+            video_path = video_path.replace(' ', '\ ')  # Escapes any spaces in file_path for POSIX
         command = f'ffmpeg -i {video_path} -ss 00:00:00.000 -vframes 1 {image_path}'
         subprocess.call(command, shell=True)
     # Open image from path

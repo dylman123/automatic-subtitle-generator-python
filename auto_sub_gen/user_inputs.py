@@ -56,7 +56,7 @@ def verify_file(ctrl, file_path):
     chosen_ext = file_path.split(".")[-1]
     for i in range(len(file_types[ctrl])):
         valid_ext = file_types[ctrl][i][1].split(".")[-1]
-        if chosen_ext == valid_ext:   
+        if chosen_ext == valid_ext:
             file_paths.append(file_path)
             callback()
         else: pass

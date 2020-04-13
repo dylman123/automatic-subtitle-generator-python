@@ -6,6 +6,8 @@ def convert_to_wav(video_path, audio_path):
     Extracts the audio from a video file.
     Output is a .wav file which is written to disk.
     '''
+    if ('\ ' in video_path) == False:
+        video_path = video_path.replace(' ', '\ ')  # Escapes any spaces in file_path for POSIX
     command = f'ffmpeg -i {video_path} -ab 160k -ac 2 -ar 44100 -vn {audio_path}'
     subprocess.call(command, shell=True)
 

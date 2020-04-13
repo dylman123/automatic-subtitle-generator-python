@@ -222,6 +222,8 @@ def add_header(out_path):
 
 def dtd_validator(out_path, dtd_path):
     '''Runs a XML DTD validator. If validation fails, result is written to terminal.'''
+    if ('\ ' in out_path) == False:
+            out_path = out_path.replace(' ', '\ ')  # Escapes any spaces in file_path for POSIX
     command = f'xmllint --noout --dtdvalid {dtd_path} {out_path}'
     result = subprocess.call(command, shell=True)
     if(result == 1):
@@ -236,7 +238,12 @@ def save_xml(video_name, output_dir, dtd_path):
 
     out_path = f"{output_dir}/{video_name}.fcpxml"  # Set output path
     if os.path.exists(out_path): os.remove(out_path)  # Overwrite if exists
-    
+
+    # The following few lines ensure that spaces are not POSIX escaped for Python
+    #if ('\ ' in out_path) == True:
+    #    py_out_path = out_path.replace('\ ', ' ')
+    #else: py_out_path = out_path
+
     with open(out_path, "wb") as file_out:
         file_out.write(xml_bytes)  # Write XML section to the file
 

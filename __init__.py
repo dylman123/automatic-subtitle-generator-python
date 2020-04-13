@@ -97,7 +97,7 @@ def program_ctrl():
         render.draw_next()
         render.draw_progress_bar()
     elif CTRL == 7:  # Review subtitles
-        gs.review_captions(csv_path=csv_path, audio_path=audio_path)
+        gs.review_captions(csv_path=csv_path, video_path=video_path)
         back_button(5)
     elif CTRL == 8:  # Select speaker
         ss.screengrab(video_path=video_path, image_path=image_path)

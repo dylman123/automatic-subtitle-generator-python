@@ -81,7 +81,9 @@ def program_ctrl():
     elif CTRL == 4:  # Speech to text Google API
         render.draw_progress_bar()
         s2t.set_env_variable(path=google_creds)
-        response = s2t.sample_long_running_recognize(path=mono_path, num_speakers=ui.num_speakers)
+        temp_blob = s2t.upload_blob(source_file_name=mono_path)
+        response = s2t.sample_long_running_recognize(num_speakers=ui.num_speakers)
+        s2t.delete_from_gcs(blob=temp_blob)
         df_words = s2t.create_dataframe(response=response)
         program_ctrl()
     elif CTRL == 5:  # Generate subtitles

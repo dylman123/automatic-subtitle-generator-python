@@ -1,5 +1,5 @@
 # Import Python modules
-import os
+import os, sys, subprocess
 import glob
 import pathlib
 from tkinter import Button, CENTER, NW
@@ -30,6 +30,7 @@ csv_path = f'{temp_dir}/subtitles.csv'
 image_path = f'{temp_dir}/screenshot.png'  # Path to screenshot image file
 template_path = "assets/title_template.fcpxml"  # Path to XML template for a title
 dtd_path = "assets/fcpxml-v1.8.dtd"  # Path to FCPXML 1.8 DTD schema
+new_fcpxml = ""  # Path to new .fcpxml file (output)
 
 def restart():
     '''User to restart program once the end has been reached.'''
@@ -56,7 +57,7 @@ def back_button(steps):
 
 def program_ctrl():
     '''Controls the program flow.'''
-    global CTRL, video_path, video_name, xml_path, df_words, df_subs, image_path
+    global CTRL, video_path, video_name, xml_path, df_words, df_subs, image_path, new_fcpxml
     render.clear_window()
     render.reset_size()
     CTRL += 1
@@ -105,10 +106,20 @@ def program_ctrl():
     elif CTRL == 9:  # Modify and save XML file
         render.draw_progress_bar()
         mx.modify_xml(xml_path=xml_path, template_path=template_path, csv_path=csv_path, coords=ss.coords)
-        mx.save_xml(video_name=video_name, output_dir=output_dir, dtd_path=dtd_path)
+        new_fcpxml = mx.save_xml(video_name=video_name, output_dir=output_dir, dtd_path=dtd_path)
         program_ctrl()
-    elif CTRL == 10:  # Save XML file
-        render.draw_button(text=render.static_text["newclip"],x=0.5, y=0.5, command=restart)
+    elif CTRL == 10:  # Final step
+        #render.draw_button(text=render.static_text["newclip"],x=0.5, y=0.5, command=restart)  # Start over button
+        render.root.destroy()
+        open_file(new_fcpxml)  # Open new .fcpxml file in native program (which is FCPX)
+
+def open_file(filename):
+    '''Opens a file in its default program.'''
+    if sys.platform == "win32":  # For Windows systems
+        os.startfile(filename)
+    else:  # For UNIX systems
+        opener ="open" if sys.platform == "darwin" else "xdg-open"
+        subprocess.call([opener, filename])
 
 def make_temp_dir():
     '''Makes a directory named "temp".'''

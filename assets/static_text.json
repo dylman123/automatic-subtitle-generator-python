@@ -29,8 +29,7 @@
             "Step 5: Modifying and saving XML file..."
         ],
     "display_subs": {
-        "instructions": "Help:\n\n* Play clip video\n* Review/edit subtitles & speaker labels\n* 'Save' subtitles file\n* Click 'Next' to position subtitles",
-        "buttons": ["Play clip", "Review subtitles"]
+        "instructions": "\nHelp:\n\n* Review/edit subtitles & speaker labels\n* 'Save' subtitles file (MUST overwrite temp/subtitles.csv)\n* Click 'Next' to position subtitles"
         },
     "select_speaker": {
         "instructions": "Click to select the desired location of speaker {speaker}'s subtitles.",

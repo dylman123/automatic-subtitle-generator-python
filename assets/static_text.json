@@ -19,7 +19,7 @@
     },
     "progress_bar": [
             "Step 1: Extracting audio from video...",
-            "Step 2: Converting audio speech to text...\n(This may take several minutes)",
+            "Step 2: Transcribing speech to text...\n(This may take several minutes)",
             "Step 3: Creating subtitles from text...",
             "Step 4: Please review the subtitles",
             "Step 5: Modifying and saving XML file..."

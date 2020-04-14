@@ -51,7 +51,7 @@ def decrement_ctrl(steps):
     CTRL -= (steps+1)  # Need to decrement by an extra step since program_ctrl() increments a step
     program_ctrl()
 
-def back_button(steps):
+def back_button(steps=1):
     '''Draws a back button.'''
     render.draw_back(steps)
 
@@ -63,24 +63,19 @@ def program_ctrl():
     CTRL += 1
     if CTRL == 0:  # Import video file
         ui.import_file(CTRL)
-    elif CTRL == 1:  # Import XML file (SKIPPED)
-        back_button(1)
+    elif CTRL == 1:  # Select number of speakers
         video_path = ui.file_paths[0]
         video_name = ui.get_video_name(path=video_path)
-        #ui.import_file(CTRL)
-        program_ctrl()
-    elif CTRL == 2:  # Select number of speakers
-        back_button(2)
+        back_button()
         render.set_size(render.initial_width, render.initial_height)
-        #xml_path = ui.file_paths[1]
         ui.select_num_speakers(CTRL)
-    elif CTRL == 3:  # Signal processing
+    elif CTRL == 2:  # Signal processing
         make_temp_dir()
         render.draw_progress_bar()
         sp.convert_to_wav(video_path=video_path, audio_path=audio_path)
         sp.convert_to_mono(stereo_path=audio_path, mono_path=mono_path)
         program_ctrl()
-    elif CTRL == 4:  # Speech to text Google API
+    elif CTRL == 3:  # Speech to text Google API
         render.draw_progress_bar()
         s2t.set_env_variable(path=google_creds)
         temp_blob = s2t.upload_blob(source_file_name=mono_path)
@@ -88,28 +83,28 @@ def program_ctrl():
         s2t.delete_from_gcs(blob=temp_blob)
         df_words = s2t.create_dataframe(response=response)
         program_ctrl()
-    elif CTRL == 5:  # Generate subtitles
+    elif CTRL == 4:  # Generate subtitles
         render.draw_progress_bar()
         df_subs = gs.create_captions(df_words,  word_limit=4)
         gs.save_csv(df_subs, csv_path)
         program_ctrl()
-    elif CTRL == 6:  # Continue button
+    elif CTRL == 5:  # Continue button
         back_button(4)
         render.draw_next()
         render.draw_progress_bar()
-    elif CTRL == 7:  # Review subtitles
+    elif CTRL == 6:  # Review subtitles
         gs.review_captions(csv_path=csv_path, video_path=video_path)
         back_button(5)
-    elif CTRL == 8:  # Select speaker
+    elif CTRL == 7:  # Select speaker
         ss.screengrab(video_path=video_path, image_path=image_path)
         ss.position_subs(num_speakers=ui.num_speakers)
-        back_button(1)
-    elif CTRL == 9:  # Modify and save XML file
+        back_button()
+    elif CTRL == 8:  # Modify and save XML file
         render.draw_progress_bar()
         mx.modify_xml(xml_path=xml_path, template_path=template_path, csv_path=csv_path, coords=ss.coords)
         new_fcpxml = mx.save_xml(video_name=video_name, video_path=video_path, output_dir=output_dir, dtd_path=dtd_path)
         program_ctrl()
-    elif CTRL == 10:  # Final step
+    elif CTRL == 9:  # Final step
         #render.draw_button(text=render.static_text["newclip"],x=0.5, y=0.5, command=restart)  # Start over button
         render.root.destroy()
         open_file(new_fcpxml)  # Open new .fcpxml file in native program (which is FCPX)

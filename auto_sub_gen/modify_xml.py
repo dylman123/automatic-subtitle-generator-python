@@ -21,7 +21,8 @@ def create_resource(root):
     resources.append(title)
     return new_id
 
-def create_title(idx, captions, asset_idx, asset_offset, asset_start, coords, rsc_id):
+#def create_title(idx, captions, asset_idx, asset_offset, asset_start, coords, rsc_id):
+def create_title(idx, captions, asset_idx, asset_offset, asset_start, coords):
     '''
     Generates a <title></title> section of the .fcpxml file, based on the
     captions which were generated previously.
@@ -51,7 +52,8 @@ def create_title(idx, captions, asset_idx, asset_offset, asset_start, coords, rs
     branch.attrib['name'] = f'{caption} - Basic Title'
     branch.attrib['duration'] = f'{duration}/{rate}s'
     branch.attrib['offset'] = offset
-    branch.attrib['ref'] = f'r{rsc_id}'
+    #branch.attrib['ref'] = f'r{rsc_id}'
+    branch.attrib['ref'] = 'r4'
     #branch.attrib['start'] = f'{start}/{rate}s'  # Might not need to add to <title></title>
     branch[0].attrib['value'] = f'{x_pos} {y_pos}'
     branch[3][0].attrib['ref'] = f'ts{idx+1}'
@@ -189,7 +191,7 @@ def modify_xml(xml_path, template_path, csv_path, coords):
     root = file_in.getroot()
 
     # Create a new resource for a Basic Title
-    rsc_id = create_resource(root)
+    #rsc_id = create_resource(root)
 
     # Create a spine variable (assumes only 1 spine exists in the video file)
     for element in root.iter('spine'):
@@ -202,8 +204,17 @@ def modify_xml(xml_path, template_path, csv_path, coords):
     for idx in range(len(captions)):
         asset_idx, asset_offset = find_asset_idx(captions, idx, clip_offsets)
         asset_start = clip_starts[asset_idx]
-        new_title = create_title(idx, captions, asset_idx, asset_offset, asset_start, coords, rsc_id)
+        #new_title = create_title(idx, captions, asset_idx, asset_offset, asset_start, coords, rsc_id)
+        new_title = create_title(idx, captions, asset_idx, asset_offset, asset_start, coords)
         add_title(spine, asset_idx, new_title)
+
+def add_video_data(path, name):
+    '''Adds the video path and video name to XML'''
+    global root
+    for asset in root.iter("asset"):
+        asset.attrib["src"] = "file://" + path
+    for asset_clip in root.iter("asset-clip"):
+        asset_clip.attrib["name"] = name
 
 def new_prettify(xml_tree):
     '''Does a pretty print for XML file'''
@@ -229,9 +240,11 @@ def dtd_validator(out_path, dtd_path):
     if(result == 1):
         print('DTD Validation Failed!')
 
-def save_xml(video_name, output_dir, dtd_path):
+def save_xml(video_name, video_path, output_dir, dtd_path):
     '''Writes the new .fcpxml file to disk.'''
     global root
+
+    add_video_data(video_path, video_name)  # Adds the video path and video name to XML
 
     data = ET.tostring(root)  # Convert XML data to string
     xml_bytes = new_prettify(data).encode('utf-8')  # Prettify and covert to bytes

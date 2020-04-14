@@ -19,7 +19,7 @@ temp_dir = "temp"  # Path to temp directory
 output_dir = "output"  # Path to output directory
 video_path = ""  # Path to imported video file
 video_name = ""  # Name of imported video file
-xml_path = ""  # Path to imported xml file
+xml_path = "assets/blank.fcpxml"  # Path to imported xml file
 audio_path = f'{temp_dir}/audio_raw.wav'  # Path to extracted raw audio file
 mono_path = f'{temp_dir}/audio_mono.wav'  # Path to extracted mono audio file
 wd = str(pathlib.Path().absolute())  # Current working directory
@@ -63,16 +63,17 @@ def program_ctrl():
     CTRL += 1
     if CTRL == 0:  # Import video file
         ui.import_file(CTRL)
-    elif CTRL == 1:  # Import XML file
+    elif CTRL == 1:  # Import XML file (SKIPPED)
         back_button(1)
         video_path = ui.file_paths[0]
         video_name = ui.get_video_name(path=video_path)
-        ui.import_file(CTRL)  
+        #ui.import_file(CTRL)
+        program_ctrl()
     elif CTRL == 2:  # Select number of speakers
-        back_button(1)
+        back_button(2)
         render.set_size(render.initial_width, render.initial_height)
-        xml_path = ui.file_paths[1]
-        ui.select_num_speakers(CTRL)  
+        #xml_path = ui.file_paths[1]
+        ui.select_num_speakers(CTRL)
     elif CTRL == 3:  # Signal processing
         make_temp_dir()
         render.draw_progress_bar()
@@ -106,7 +107,7 @@ def program_ctrl():
     elif CTRL == 9:  # Modify and save XML file
         render.draw_progress_bar()
         mx.modify_xml(xml_path=xml_path, template_path=template_path, csv_path=csv_path, coords=ss.coords)
-        new_fcpxml = mx.save_xml(video_name=video_name, output_dir=output_dir, dtd_path=dtd_path)
+        new_fcpxml = mx.save_xml(video_name=video_name, video_path=video_path, output_dir=output_dir, dtd_path=dtd_path)
         program_ctrl()
     elif CTRL == 10:  # Final step
         #render.draw_button(text=render.static_text["newclip"],x=0.5, y=0.5, command=restart)  # Start over button

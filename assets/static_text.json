@@ -2,35 +2,30 @@
     "title": "Automatic Subtitle Generator for Final Cut Pro X",
     "user_inputs": {
         "file_types": [
-            [["m4v files", "*.m4v"], ["mp4 files", "*.mp4"]],
-            [["fcpxml files", "*.fcpxml"]]
+            [["m4v files", "*.m4v"], ["mp4 files", "*.mp4"], ["mov files", "*.mov"]]
         ],
         "button":[
             "Import video file",
-            "Import Final Cut Pro XML file (.fcpxml)",
             "Click to process video clip"
         ],
         "instructions": [
             "Select video file",
-            "Select Final Cut Pro XML file",
             "How many speakers are in this clip?"
         ],
         "verify_errors": [
             "File selected was not in a video format. Please select a file in a video format.",
-            "File selected was not in .fcpxml format. Please select a file in .fcpxml format.",
             "Value must be a whole number."
         ]
     },
     "progress_bar": [
             "Step 1: Extracting audio from video...",
-            "Step 2: Converting audio speech to text...\n(This may take several minutes)",
+            "Step 2: Transcribing speech to text...\n(This may take several minutes)",
             "Step 3: Creating subtitles from text...",
             "Step 4: Please review the subtitles",
             "Step 5: Modifying and saving XML file..."
         ],
     "display_subs": {
-        "instructions": "Help:\n\n* Play clip audio\n* Review/edit subtitles & speaker labels\n* 'Save' subtitles file\n* Click 'Next' to position subtitles",
-        "buttons": ["Play clip audio", "Review subtitles"]
+        "instructions": "\nHelp:\n\n* Review/edit subtitles & speaker labels\n* 'Save' subtitles file (MUST overwrite temp/subtitles.csv)\n* Click 'Next' to position subtitles"
         },
     "select_speaker": {
         "instructions": "Click to select the desired location of speaker {speaker}'s subtitles.",

@@ -1,6 +1,4 @@
-import render
-import __init__
-#from init import program_ctrl
+from auto_sub_gen import render
 
 # Import static text from assets
 TEXT = render.static_text["user_inputs"]
@@ -11,6 +9,11 @@ verify_errors = TEXT["verify_errors"]
 
 file_paths = []  # A list of strings which contains the input file paths
 num_speakers = 0  # An integer to represent how many speakers are in the clip
+
+def get_callback(fn):
+    '''To pass the program_ctrl() function into this module.'''
+    global callback
+    callback = fn
 
 def get_video_name(path):
     '''
@@ -26,10 +29,10 @@ def get_value(ctrl):
     Output: num_speakers is updated (an int containing the number of speakers
     in the video clip, which is a global variable).
     '''
-    global num_speakers
+    global num_speakers, callback
     try:
         num_speakers = int(render.string_in.get())
-        __init__.program_ctrl()
+        callback()
     except:
         error = verify_errors[ctrl]
         render.draw_error(error, x=0.5, y=0.9)
@@ -53,9 +56,9 @@ def verify_file(ctrl, file_path):
     chosen_ext = file_path.split(".")[-1]
     for i in range(len(file_types[ctrl])):
         valid_ext = file_types[ctrl][i][1].split(".")[-1]
-        if chosen_ext == valid_ext:   
+        if chosen_ext == valid_ext:
             file_paths.append(file_path)
-            __init__.program_ctrl()
+            callback()
         else: pass
 
 def select_file(ctrl):

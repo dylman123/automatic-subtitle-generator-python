@@ -2,7 +2,7 @@
     "title": "Automatic Subtitle Generator for Final Cut Pro X",
     "user_inputs": {
         "file_types": [
-            [["m4v files", "*.m4v"], ["mp4 files", "*.mp4"]]
+            [["m4v files", "*.m4v"], ["mp4 files", "*.mp4"], ["mov files", "*.mov"]]
         ],
         "button":[
             "Import video file",

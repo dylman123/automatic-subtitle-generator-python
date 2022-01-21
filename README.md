@@ -42,5 +42,9 @@ The program has the following inputs:
 * User to select number of speakers in video clip
 
 #### Outputs
-The program has the following output:
+The program has the following outputs:
+* A Comma Separated Values file (.csv) - displaying the generated captions
 * A modified Final Cut Pro XML file (.fcpxml) - to be opened in Final Cut Pro X
+
+## Example
+Navigate to the `example` directory to view example input and output files.

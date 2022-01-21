@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fcpxml>
+
+<fcpxml version="1.8">
+    <resources>
+        <format colorSpace="1-1-1 (Rec. 709)" frameDuration="100/3000s" height="1080" id="r1" name="FFVideoFormat1080p30" width="1920"/>
+        <asset audioChannels="2" audioRate="48000" audioSources="1" duration="63693630/90000s" format="r3" hasAudio="1" hasVideo="1" id="r2" name="GH020795" src="file:///Users/darrenlevy/Movies/Untitled.fcpbundle/2-2-20/Original%20Media/GH020795.mp4" start="693488796/90000s" uid="3EEBD4C56AEEB3775416D119E150108E">
+            <metadata>
+                <md key="com.apple.proapps.studio.rawToLogConversion" value="0"/>
+                <md key="com.apple.proapps.spotlight.kMDItemProfileName" value="HD (1-1-1)"/>
+                <md key="com.apple.proapps.spotlight.kMDItemCodecs">
+                    <array>
+                        <string>AAC</string>
+                        <string>GoPro AVC encoder</string>
+                    </array>
+                </md>
+                <md key="com.apple.proapps.mio.ingestDate" value="2020-02-04 05:43:21 +1100"/>
+            </metadata>
+        </asset>
+        <format colorSpace="1-1-1 (Rec. 709)" frameDuration="1001/30000s" height="1080" id="r3" name="FFVideoFormat1080p2997" width="1920"/>
+        <effect id="r4" name="Basic Title" uid=".../Titles.localized/Bumper:Opener.localized/Basic Title.localized/Basic Title.moti"/>
+        <asset audioChannels="2" audioRate="44100" audioSources="1" duration="7377408/44100s" hasAudio="1" id="r5" name="Potions (1)" src="file:///Users/darrenlevy/Downloads/Potions%20(1).mp3" start="0s" uid="4A4E526F280A1AA568C736A92ADF59E4">
+            <bookmark>Ym9va8QCAAAAAAQQMAAAAOX0PYmefW3kgjljTQJ4ksufXAoCbYv7Jz+PnhptE7B5wAEAAAQAAAADAwAAABgAKAUAAAABAQAAVXNlcnMAAAAKAAAAAQEAAGRhcnJlbmxldnkAAAkAAAABAQAARG93bmxvYWRzAAAADwAAAAEBAABQb3Rpb25zICgxKS5tcDMAEAAAAAEGAAAQAAAAIAAAADQAAABIAAAACAAAAAQDAADcaQYAAAAAAAgAAAAEAwAAhaoJAAAAAAAIAAAABAMAAIiqCQAAAAAACAAAAAQDAAAL+fkAAgAAABAAAAABBgAAeAAAAIgAAACYAAAAqAAAAAgAAAAABAAAQcH1rzD+BqIYAAAAAQIAAAEAAAAAAAAADwAAAAAAAAAAAAAAAAAAAAgAAAAEAwAAAgAAAAAAAAAEAAAAAwMAAPUBAAAIAAAAAQkAAGZpbGU6Ly8vDAAAAAEBAABNYWNpbnRvc2ggSEQIAAAABAMAAABQPy0cAAAACAAAAAAEAABBvrff8QAAACQAAAABAQAAQTgxQUFGREEtMTk3Qy0zNkE0LTkyREYtQUM4NjRENUEyMDdFGAAAAAECAACBAAAAAQAAAO8TAAABAAAAAAAAAAAAAAABAAAAAQEAAC8AAAAAAAAAAQUAAMwAAAD+////AQAAAAAAAAAQAAAABBAAAGAAAAAAAAAABRAAALgAAAAAAAAAEBAAAOAAAAAAAAAAQBAAANAAAAAAAAAAAiAAAKwBAAAAAAAABSAAABwBAAAAAAAAECAAACwBAAAAAAAAESAAAGABAAAAAAAAEiAAAEABAAAAAAAAEyAAAFABAAAAAAAAICAAAIwBAAAAAAAAMCAAALgBAAAAAAAAAcAAAAABAAAAAAAAEcAAACAAAAAAAAAAEsAAABABAAAAAAAAENAAAAQAAAAAAAAA</bookmark>
+        </asset>
+        <effect id="r6" name="Basic Title" uid=".../Titles.localized/Bumper:Opener.localized/Basic Title.localized/Basic Title.moti"/>
+    </resources>
+    <library location="file:///Users/darrenlevy/Movies/Untitled.fcpbundle/">
+        <event name="2-2-20" uid="0D8C07BB-7178-4EC9-9F63-E5DE8252D368">
+            <project modDate="2020-02-21 23:24:35 +1100" name="Untitled Project 3" uid="DD781F27-5B9E-4126-9E46-95A80BDA04F7">
+                <sequence audioLayout="stereo" audioRate="48k" duration="129900/3000s" format="r1" tcFormat="NDF" tcStart="0s">
+                    <spine>
+                        <asset-clip audioRole="dialogue" duration="174/30s" format="r3" name="GH020795" offset="0s" ref="r2" start="236923687/30000s" tcFormat="NDF">
+                            <conform-rate srcFrameRate="29.97"/>
+                            <adjust-volume>
+                                <param name="amount">
+                                    <fadeIn duration="27020/720000s" type="easeIn"/>
+                                    <fadeOut duration="2999/720000s" type="easeIn"/>
+                                </param>
+                            </adjust-volume>
+                            <title duration="4500/3000s" lane="1" name="I'm fucking competitive - Basic Title" offset="236923687/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="-502.0 -330.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts1">I'm fucking competitive</text-style>
+                                </text>
+                                <text-style-def id="ts1">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="2400/3000s" lane="1" name="okay don't get me - Basic Title" offset="236971735/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="-502.0 -330.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts2">okay don't get me</text-style>
+                                </text>
+                                <text-style-def id="ts2">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="2400/3000s" lane="1" name="started like - Basic Title" offset="236995759/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="-502.0 -330.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts3">started like</text-style>
+                                </text>
+                                <text-style-def id="ts3">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="1500/3000s" lane="1" name="what do you most - Basic Title" offset="237022786/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="-502.0 -330.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts4">what do you most</text-style>
+                                </text>
+                                <text-style-def id="ts4">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="2400/3000s" lane="1" name="competitive in - Basic Title" offset="237037801/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="-502.0 -330.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts5">competitive in</text-style>
+                                </text>
+                                <text-style-def id="ts5">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                        </asset-clip>
+                        <asset-clip audioRole="dialogue" duration="10s" format="r3" name="GH020795" offset="174/30s" ref="r2" start="23722699/3000s" tcFormat="NDF">
+                            <conform-rate srcFrameRate="29.97"/>
+                            <adjust-volume>
+                                <param name="amount">
+                                    <fadeIn duration="38565/720000s" type="easeIn"/>
+                                    <fadeOut duration="33257/720000s" type="easeIn"/>
+                                </param>
+                            </adjust-volume>
+                            <asset-clip audioRole="dialogue" duration="64000/3000s" format="r1" lane="-1" name="Potions (1)" offset="23722699/3000s" ref="r5" start="9/10s">
+                                <adjust-volume amount="-28dB"/>
+                            </asset-clip>
+                            <title duration="2400/3000s" lane="1" name="like if someone was - Basic Title" offset="237226990/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="-502.0 -330.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts6">like if someone was</text-style>
+                                </text>
+                                <text-style-def id="ts6">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="2700/3000s" lane="1" name="like walking next to - Basic Title" offset="237251014/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="-502.0 -330.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts7">like walking next to</text-style>
+                                </text>
+                                <text-style-def id="ts7">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="2100/3000s" lane="1" name="me and they're like - Basic Title" offset="237278041/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="-502.0 -330.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts8">me and they're like</text-style>
+                                </text>
+                                <text-style-def id="ts8">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="2700/3000s" lane="1" name="a little like a - Basic Title" offset="237299062/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="-502.0 -330.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts9">a little like a</text-style>
+                                </text>
+                                <text-style-def id="ts9">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="3600/3000s" lane="1" name="step faster I'll be - Basic Title" offset="237326089/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="-502.0 -330.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts10">step faster I'll be</text-style>
+                                </text>
+                                <text-style-def id="ts10">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="1800/3000s" lane="1" name="like - Basic Title" offset="237362125/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="-502.0 -330.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts11">like</text-style>
+                                </text>
+                                <text-style-def id="ts11">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="1800/3000s" lane="1" name="fuck you I'm gonna - Basic Title" offset="237383146/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="-502.0 -330.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts12">fuck you I'm gonna</text-style>
+                                </text>
+                                <text-style-def id="ts12">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="2700/3000s" lane="1" name="beat ya you gotta - Basic Title" offset="237401164/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="500.0 -302.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts13">beat ya you gotta</text-style>
+                                </text>
+                                <text-style-def id="ts13">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="1800/3000s" lane="1" name="work fast - Basic Title" offset="237428191/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="500.0 -302.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts14">work fast</text-style>
+                                </text>
+                                <text-style-def id="ts14">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="1500/3000s" lane="1" name="oh Mike - Basic Title" offset="237449212/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="-502.0 -330.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts15">oh Mike</text-style>
+                                </text>
+                                <text-style-def id="ts15">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <audio-channel-source role="dialogue.dialogue-1" srcCh="1, 2">
+                                <adjust-EQ mode="flat">
+                                    <param key="2/0" name="32 Hz" value="-20"/>
+                                    <param key="2/1" name="64 Hz" value="-3"/>
+                                </adjust-EQ>
+                            </audio-channel-source>
+                        </asset-clip>
+                        <asset-clip audioRole="dialogue" duration="643/30s" format="r3" name="GH020795" offset="47400/3000s" ref="r2" start="237788551/30000s" tcFormat="NDF">
+                            <conform-rate srcFrameRate="29.97"/>
+                            <adjust-volume>
+                                <param name="amount">
+                                    <fadeIn duration="29088/720000s" type="easeIn"/>
+                                    <fadeOut duration="24336/720000s" type="easeIn"/>
+                                </param>
+                            </adjust-volume>
+                            <asset-clip audioRole="dialogue" duration="41500/3000s" format="r1" lane="-1" name="Potions (1)" offset="238198961/30000s" ref="r5" start="9/10s">
+                                <adjust-volume amount="-28dB"/>
+                            </asset-clip>
+                            <title duration="3600/3000s" lane="1" name="you're behind me if - Basic Title" offset="237758521/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="-502.0 -330.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts16">you're behind me if</text-style>
+                                </text>
+                                <text-style-def id="ts16">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="1500/3000s" lane="1" name="it's a friend of - Basic Title" offset="237794557/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="-502.0 -330.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts17">it's a friend of</text-style>
+                                </text>
+                                <text-style-def id="ts17">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="1500/3000s" lane="1" name="mine - Basic Title" offset="237809572/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="-502.0 -330.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts18">mine</text-style>
+                                </text>
+                                <text-style-def id="ts18">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="3000/3000s" lane="1" name="yeah let them waiting - Basic Title" offset="237842605/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="-502.0 -330.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts19">yeah let them waiting</text-style>
+                                </text>
+                                <text-style-def id="ts19">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="2100/3000s" lane="1" name="right if it's a - Basic Title" offset="237872635/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="-502.0 -330.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts20">right if it's a</text-style>
+                                </text>
+                                <text-style-def id="ts20">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="1800/3000s" lane="1" name="stranger I'm - Basic Title" offset="237893656/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="-502.0 -330.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts21">stranger I'm</text-style>
+                                </text>
+                                <text-style-def id="ts21">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="2100/3000s" lane="1" name="that we got - Basic Title" offset="237911674/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="500.0 -302.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts22">that we got</text-style>
+                                </text>
+                                <text-style-def id="ts22">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="4500/3000s" lane="1" name="this gon go down - Basic Title" offset="237941704/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="500.0 -302.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts23">this gon go down</text-style>
+                                </text>
+                                <text-style-def id="ts23">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="3900/3000s" lane="1" name="we're going Fight - Basic Title" offset="237989752/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="500.0 -302.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts24">we're going Fight</text-style>
+                                </text>
+                                <text-style-def id="ts24">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="2100/3000s" lane="1" name="You Gotta Have you - Basic Title" offset="238040803/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="500.0 -302.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts25">You Gotta Have you</text-style>
+                                </text>
+                                <text-style-def id="ts25">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="2100/3000s" lane="1" name="ever gotten into a - Basic Title" offset="238061824/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="500.0 -302.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts26">ever gotten into a</text-style>
+                                </text>
+                                <text-style-def id="ts26">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="1200/3000s" lane="1" name="fight - Basic Title" offset="238082845/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="500.0 -302.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts27">fight</text-style>
+                                </text>
+                                <text-style-def id="ts27">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="1800/3000s" lane="1" name="no - Basic Title" offset="238145908/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="-502.0 -330.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts28">no</text-style>
+                                </text>
+                                <text-style-def id="ts28">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="2700/3000s" lane="1" name="that's a lie - Basic Title" offset="238169932/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="-502.0 -330.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts29">that's a lie</text-style>
+                                </text>
+                                <text-style-def id="ts29">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="3000/3000s" lane="1" name="who pauses for 10 - Basic Title" offset="238229992/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="-502.0 -330.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts30">who pauses for 10</text-style>
+                                </text>
+                                <text-style-def id="ts30">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="1200/3000s" lane="1" name="seconds - Basic Title" offset="238260022/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="-502.0 -330.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts31">seconds</text-style>
+                                </text>
+                                <text-style-def id="ts31">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="3900/3000s" lane="1" name="well I'm from Hobart - Basic Title" offset="238340102/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="-502.0 -330.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts32">well I'm from Hobart</text-style>
+                                </text>
+                                <text-style-def id="ts32">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="6000/3000s" lane="1" name="was like bargain centralism - Basic Title" offset="238385147/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="-502.0 -330.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts33">was like bargain centralism</text-style>
+                                </text>
+                                <text-style-def id="ts33">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="2100/3000s" lane="1" name="you've been to her - Basic Title" offset="238445207/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="-502.0 -330.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts34">you've been to her</text-style>
+                                </text>
+                                <text-style-def id="ts34">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="1200/3000s" lane="1" name="but - Basic Title" offset="238466228/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="-502.0 -330.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts35">but</text-style>
+                                </text>
+                                <text-style-def id="ts35">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="2400/3000s" lane="1" name="I just thought everybody - Basic Title" offset="238481243/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="-502.0 -330.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts36">I just thought everybody</text-style>
+                                </text>
+                                <text-style-def id="ts36">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <title duration="3600/3000s" lane="1" name="is related to everybody - Basic Title" offset="238505267/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="-502.0 -330.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts37">is related to everybody</text-style>
+                                </text>
+                                <text-style-def id="ts37">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <audio-channel-source role="dialogue.dialogue-1" srcCh="1, 2">
+                                <adjust-EQ mode="flat">
+                                    <param key="2/0" name="32 Hz" value="-20"/>
+                                    <param key="2/1" name="64 Hz" value="-3"/>
+                                </adjust-EQ>
+                            </audio-channel-source>
+                        </asset-clip>
+                        <asset-clip audioRole="dialogue" duration="182/30s" format="r3" name="GH020795" offset="111700/3000s" ref="r2" start="47694647/6000s" tcFormat="NDF">
+                            <conform-rate srcFrameRate="29.97"/>
+                            <adjust-volume>
+                                <param name="amount">
+                                    <fadeIn duration="6837/720000s" type="easeIn"/>
+                                    <fadeOut duration="28145/720000s" type="easeIn"/>
+                                </param>
+                            </adjust-volume>
+                            <title duration="600/3000s" lane="1" name="there - Basic Title" offset="238583345/30000s" ref="r6">
+                                <param key="9999/999166631/999166633/1/100/101" name="Position" value="-502.0 -330.0"/>
+                                <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
+                                <param key="9999/999166631/999166633/2/354/999169573/401" name="Alignment" value="1 (Center)"/>
+                                <text>
+                                    <text-style ref="ts38">there</text-style>
+                                </text>
+                                <text-style-def id="ts38">
+                                    <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
+                                </text-style-def>
+                            </title>
+                            <audio-channel-source role="dialogue.dialogue-1" srcCh="1, 2">
+                                <adjust-EQ mode="flat">
+                                    <param key="2/0" name="32 Hz" value="-20"/>
+                                    <param key="2/1" name="64 Hz" value="-3"/>
+                                </adjust-EQ>
+                            </audio-channel-source>
+                        </asset-clip>
+                    </spine>
+                </sequence>
+            </project>
+        </event>
+        <smart-collection match="all" name="Projects">
+            <match-clip rule="is" type="project"/>
+        </smart-collection>
+        <smart-collection match="any" name="All Video">
+            <match-media rule="is" type="videoOnly"/>
+            <match-media rule="is" type="videoWithAudio"/>
+        </smart-collection>
+        <smart-collection match="all" name="Audio Only">
+            <match-media rule="is" type="audioOnly"/>
+        </smart-collection>
+        <smart-collection match="all" name="Stills">
+            <match-media rule="is" type="stills"/>
+        </smart-collection>
+        <smart-collection match="all" name="Favorites">
+            <match-ratings value="favorites"/>
+        </smart-collection>
+    </library>
+</fcpxml>

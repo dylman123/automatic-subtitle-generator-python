@@ -22,8 +22,8 @@ include/
 *.Python
 
 # Video Files
-*.mp4
-*.m4v
+# *.mp4
+# *.m4v
 
 # System Files
 *.DS_Store

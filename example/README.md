@@ -50,9 +50,10 @@ For example, the file `captions.csv` was generated.
 ## Output FCPXML
 The outputted file is of the format .fcpxml and is readable by Final Cut Pro X. This allows the user to edit the auto-generated captions before the video is to be rendered.
 
-For example, the file `output.fcpxml` was outputted.
+For example, the file `output.fcpxml` was outputted. The following is an excerpt from `output.xml`:
 
 ```
+...
 <title duration="4500/3000s" lane="1" name="I'm fucking competitive - Basic Title" offset="236923687/30000s" ref="r6">
     <param key="9999/999166631/999166633/1/100/101" name="Position" value="-502.0 -330.0"/>
     <param key="9999/999166631/999166633/2/351" name="Flatten" value="1"/>
@@ -86,4 +87,5 @@ For example, the file `output.fcpxml` was outputted.
         <text-style alignment="center" bold="1" font="Futura" fontColor="1 1 1 1" fontFace="Condensed ExtraBold" fontSize="60" strokeColor="0 0 0 1" strokeWidth="3"/>
     </text-style-def>
 </title>
+...
 ```
